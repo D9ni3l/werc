@@ -49,7 +49,7 @@ import (
 	"github.com/prometheus-community/windows_exporter/internal/collector/udp"
 	"github.com/prometheus-community/windows_exporter/internal/collector/update"
 	"github.com/prometheus-community/windows_exporter/internal/collector/vmware"
-        "./internal/collector/rdp_client"
+        "github.com/d9ni3l/werc/internal/collector/rdp_client"
 )
 
 type Config struct {
