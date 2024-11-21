@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/prometheus-community/windows_exporter/internal/mi"
+	"github.com/D9ni3l/werc/internal/mi"
 	"github.com/stretchr/testify/require"
 )
 

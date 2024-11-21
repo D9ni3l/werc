@@ -11,7 +11,7 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/prometheus-community/windows_exporter/internal/collector/perfdata"
+	"github.com/D9ni3l/werc/internal/collector/perfdata"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/stretchr/testify/assert"

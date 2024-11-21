@@ -10,11 +10,11 @@ import (
 	"time"
 
 	"github.com/alecthomas/kingpin/v2"
-	"github.com/prometheus-community/windows_exporter/internal/headers/kernel32"
-	"github.com/prometheus-community/windows_exporter/internal/headers/netapi32"
-	"github.com/prometheus-community/windows_exporter/internal/headers/sysinfoapi"
-	"github.com/prometheus-community/windows_exporter/internal/mi"
-	"github.com/prometheus-community/windows_exporter/internal/types"
+	"github.com/D9ni3l/werc/internal/headers/kernel32"
+	"github.com/D9ni3l/werc/internal/headers/netapi32"
+	"github.com/D9ni3l/werc/internal/headers/sysinfoapi"
+	"github.com/D9ni3l/werc/internal/mi"
+	"github.com/D9ni3l/werc/internal/types"
 	"github.com/prometheus/client_golang/prometheus"
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/registry"
@@ -92,7 +92,7 @@ func (c *Collector) Close() error {
 
 func (c *Collector) Build(logger *slog.Logger, _ *mi.Session) error {
 	logger.Warn("The os collect holds a number of deprecated metrics and will be removed mid 2025. "+
-		"See https://github.com/prometheus-community/windows_exporter/pull/1596 for more information.",
+		"See https://github.com/D9ni3l/werc/pull/1596 for more information.",
 		slog.String("collector", Name),
 	)
 

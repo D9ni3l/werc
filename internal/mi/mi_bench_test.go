@@ -5,7 +5,7 @@ package mi_test
 import (
 	"testing"
 
-	"github.com/prometheus-community/windows_exporter/internal/mi"
+	"github.com/D9ni3l/werc/internal/mi"
 	"github.com/stretchr/testify/require"
 )
 

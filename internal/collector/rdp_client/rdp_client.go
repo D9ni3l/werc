@@ -2,7 +2,6 @@ package rdp_client
 
 import (
     "github.com/prometheus/client_golang/prometheus"
-//    "github.com/prometheus-community/windows_exporter/log"
     "golang.org/x/sys/windows"
 )
 

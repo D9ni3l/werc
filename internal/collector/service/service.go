@@ -12,8 +12,8 @@ import (
 	"unsafe"
 
 	"github.com/alecthomas/kingpin/v2"
-	"github.com/prometheus-community/windows_exporter/internal/mi"
-	"github.com/prometheus-community/windows_exporter/internal/types"
+	"github.com/D9ni3l/werc/internal/mi"
+	"github.com/D9ni3l/werc/internal/types"
 	"github.com/prometheus/client_golang/prometheus"
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/svc/mgr"

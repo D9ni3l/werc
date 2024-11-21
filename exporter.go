@@ -8,7 +8,7 @@ package main
 //nolint:gofumpt
 import (
 	// Its important that we do these first so that we can register with the Windows service control ASAP to avoid timeouts.
-	"github.com/prometheus-community/windows_exporter/internal/windowsservice"
+	"github.com/D9ni3l/werc/internal/windowsservice"
 
 	"context"
 	"errors"
@@ -25,11 +25,11 @@ import (
 	"time"
 
 	"github.com/alecthomas/kingpin/v2"
-	"github.com/prometheus-community/windows_exporter/internal/config"
-	"github.com/prometheus-community/windows_exporter/internal/httphandler"
-	"github.com/prometheus-community/windows_exporter/internal/log"
-	"github.com/prometheus-community/windows_exporter/internal/log/flag"
-	"github.com/prometheus-community/windows_exporter/pkg/collector"
+	"github.com/D9ni3l/werc/internal/config"
+	"github.com/D9ni3l/werc/internal/httphandler"
+	"github.com/D9ni3l/werc/internal/log"
+	"github.com/D9ni3l/werc/internal/log/flag"
+	"github.com/D9ni3l/werc/pkg/collector"
 	"github.com/prometheus/common/version"
 	"github.com/prometheus/exporter-toolkit/web"
 	webflag "github.com/prometheus/exporter-toolkit/web/kingpinflag"

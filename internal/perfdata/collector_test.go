@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	v2 "github.com/prometheus-community/windows_exporter/internal/perfdata"
+	v2 "github.com/D9ni3l/werc/internal/perfdata"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

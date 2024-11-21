@@ -9,7 +9,7 @@ import (
 	"slices"
 
 	"github.com/alecthomas/kingpin/v2"
-	"github.com/prometheus-community/windows_exporter/internal/mi"
+	"github.com/D9ni3l/werc/internal/mi"
 	"github.com/prometheus/client_golang/prometheus"
 )
 

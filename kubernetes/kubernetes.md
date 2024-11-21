@@ -42,7 +42,7 @@ This create a deployment on every node. A config map is created for to handle th
 kubectl apply -f kubernetes/windows-exporter-daemonset.yaml
 ```
 
-> Note: This example manifest deploys the latest bleeding edge image `ghcr.io/prometheus-community/windows-exporter:latest` built from the main branch.  You should update this to use a released version which you can find at https://github.com/prometheus-community/windows_exporter/releases
+> Note: This example manifest deploys the latest bleeding edge image `ghcr.io/prometheus-community/windows-exporter:latest` built from the main branch.  You should update this to use a released version which you can find at https://github.com/D9ni3l/werc/releases
 
 #### Configuring the firewall
 The firewall on the node needs to be configured  to allow connections on the node: `New-NetFirewallRule -DisplayName 'windows-exporter' -Direction inbound -Profile Any -Action Allow -LocalPort 9182 -Protocol TCP` 

@@ -6,7 +6,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/prometheus-community/windows_exporter/internal/utils"
+	"github.com/D9ni3l/werc/internal/utils"
 	"golang.org/x/sys/windows"
 )
 

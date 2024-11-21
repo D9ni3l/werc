@@ -91,9 +91,9 @@
         <Property Id="TEXTFILE_DIRS" Secure="yes" />
         <SetProperty Id="TextfileDirsFlag" After="InstallFiles" Sequence="execute" Value="--collector.textfile.directories [TEXTFILE_DIRS]" Condition="TEXTFILE_DIRS" />
 
-        <Property Id="ARPHELPLINK" Value="https://github.com/prometheus-community/windows_exporter/issues" />
+        <Property Id="ARPHELPLINK" Value="https://github.com/D9ni3l/werc/issues" />
         <Property Id="ARPSIZE" Value="9000" />
-        <Property Id="ARPURLINFOABOUT" Value="https://github.com/prometheus-community/windows_exporter" />
+        <Property Id="ARPURLINFOABOUT" Value="https://github.com/D9ni3l/werc" />
         <!--<Property Id="ARPNOMODIFY" Value="0" />-->
         <!--<Property Id="ARPNOREPAIR" Value="1" />-->
         <Property Id="START_MENU_FOLDER" Value="0" />

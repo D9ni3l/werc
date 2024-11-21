@@ -10,9 +10,9 @@ import (
 
 	"github.com/Microsoft/hcsshim"
 	"github.com/alecthomas/kingpin/v2"
-	"github.com/prometheus-community/windows_exporter/internal/mi"
-	"github.com/prometheus-community/windows_exporter/internal/perfdata"
-	"github.com/prometheus-community/windows_exporter/internal/types"
+	"github.com/D9ni3l/werc/internal/mi"
+	"github.com/D9ni3l/werc/internal/perfdata"
+	"github.com/D9ni3l/werc/internal/types"
 	"github.com/prometheus/client_golang/prometheus"
 )
 
@@ -354,7 +354,7 @@ func (c *Collector) collectContainer(ch chan<- prometheus.Metric, containerDetai
 // collectNetworkMetrics collects network metrics for containers.
 // With HNSv2, the network stats must be collected from hcsshim.HNSListEndpointRequest.
 // Network statistics from the container.Statistics() are providing data only, if HNSv1 is used.
-// Ref: https://github.com/prometheus-community/windows_exporter/pull/1218
+// Ref: https://github.com/D9ni3l/werc/pull/1218
 func (c *Collector) collectNetworkMetrics(ch chan<- prometheus.Metric, containerPrefixes map[string]string) error {
 	hnsEndpoints, err := hcsshim.HNSListEndpointRequest()
 	if err != nil {

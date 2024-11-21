@@ -11,7 +11,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/prometheus-community/windows_exporter/internal/types"
+	"github.com/D9ni3l/werc/internal/types"
 	"github.com/prometheus/client_golang/prometheus"
 )
 

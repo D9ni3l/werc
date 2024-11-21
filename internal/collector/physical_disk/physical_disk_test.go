@@ -5,9 +5,9 @@ package physical_disk_test
 import (
 	"testing"
 
-	"github.com/prometheus-community/windows_exporter/internal/collector/physical_disk"
-	"github.com/prometheus-community/windows_exporter/internal/types"
-	"github.com/prometheus-community/windows_exporter/internal/utils/testutils"
+	"github.com/D9ni3l/werc/internal/collector/physical_disk"
+	"github.com/D9ni3l/werc/internal/types"
+	"github.com/D9ni3l/werc/internal/utils/testutils"
 )
 
 func BenchmarkCollector(b *testing.B) {

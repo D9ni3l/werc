@@ -9,7 +9,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/prometheus-community/windows_exporter/internal/log/eventlog"
+	"github.com/D9ni3l/werc/internal/log/eventlog"
 	"github.com/prometheus/common/promslog"
 	"golang.org/x/sys/windows"
 )

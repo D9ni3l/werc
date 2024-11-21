@@ -2,7 +2,7 @@
 
 > [!CAUTION]
 > This collector is deprecated and will be removed in a future release.
-> See https://github.com/prometheus-community/windows_exporter/pull/1596 for more information.
+> See https://github.com/D9ni3l/werc/pull/1596 for more information.
 
 The cs collector exposes metrics detailing the hardware of the computer system
 

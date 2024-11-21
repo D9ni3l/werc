@@ -2,7 +2,7 @@
 
 package perfdata
 
-import "github.com/prometheus-community/windows_exporter/internal/perfdata"
+import "github.com/D9ni3l/werc/internal/perfdata"
 
 type Object struct {
 	Object        string             `json:"object"         yaml:"object"`

@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	"github.com/alecthomas/kingpin/v2"
-	"github.com/prometheus-community/windows_exporter/internal/collector/net"
-	"github.com/prometheus-community/windows_exporter/internal/utils/testutils"
+	"github.com/D9ni3l/werc/internal/collector/net"
+	"github.com/D9ni3l/werc/internal/utils/testutils"
 )
 
 func BenchmarkCollector(b *testing.B) {

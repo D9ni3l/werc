@@ -5,8 +5,8 @@ package memory_test
 import (
 	"testing"
 
-	"github.com/prometheus-community/windows_exporter/internal/collector/memory"
-	"github.com/prometheus-community/windows_exporter/internal/utils/testutils"
+	"github.com/D9ni3l/werc/internal/collector/memory"
+	"github.com/D9ni3l/werc/internal/utils/testutils"
 )
 
 func BenchmarkCollector(b *testing.B) {

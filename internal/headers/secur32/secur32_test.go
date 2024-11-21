@@ -5,7 +5,7 @@ package secur32_test
 import (
 	"testing"
 
-	"github.com/prometheus-community/windows_exporter/internal/headers/secur32"
+	"github.com/D9ni3l/werc/internal/headers/secur32"
 	"github.com/stretchr/testify/require"
 )
 

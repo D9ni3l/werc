@@ -1,12 +1,12 @@
 # windows_exporter
 
-[![CI](https://github.com/prometheus-community/windows_exporter/actions/workflows/release.yml/badge.svg)](https://github.com/prometheus-community/windows_exporter)
-[![Linting](https://github.com/prometheus-community/windows_exporter/actions/workflows/lint.yml/badge.svg)](https://github.com/prometheus-community/windows_exporter)
-[![GitHub license](https://img.shields.io/github/license/prometheus-community/windows_exporter)](https://github.com/prometheus-community/windows_exporter/blob/master/LICENSE.txt)
-[![Current Release](https://img.shields.io/github/release/prometheus-community/windows_exporter.svg?logo=github)](https://github.com/prometheus-community/windows_exporter/releases/latest)
-[![GitHub Repo stars](https://img.shields.io/github/stars/prometheus-community/windows_exporter?style=flat&logo=github)](https://github.com/prometheus-community/windows_exporter/stargazers)
-[![GitHub all releases](https://img.shields.io/github/downloads/prometheus-community/windows_exporter/total?logo=github)](https://github.com/prometheus-community/windows_exporter/releases/latest)
-[![Go Report Card](https://goreportcard.com/badge/github.com/prometheus-community/windows_exporter)](https://goreportcard.com/report/github.com/prometheus-community/windows_exporter)
+[![CI](https://github.com/D9ni3l/werc/actions/workflows/release.yml/badge.svg)](https://github.com/D9ni3l/werc)
+[![Linting](https://github.com/D9ni3l/werc/actions/workflows/lint.yml/badge.svg)](https://github.com/D9ni3l/werc)
+[![GitHub license](https://img.shields.io/github/license/prometheus-community/windows_exporter)](https://github.com/D9ni3l/werc/blob/master/LICENSE.txt)
+[![Current Release](https://img.shields.io/github/release/prometheus-community/windows_exporter.svg?logo=github)](https://github.com/D9ni3l/werc/releases/latest)
+[![GitHub Repo stars](https://img.shields.io/github/stars/prometheus-community/windows_exporter?style=flat&logo=github)](https://github.com/D9ni3l/werc/stargazers)
+[![GitHub all releases](https://img.shields.io/github/downloads/prometheus-community/windows_exporter/total?logo=github)](https://github.com/D9ni3l/werc/releases/latest)
+[![Go Report Card](https://goreportcard.com/badge/github.com/D9ni3l/werc)](https://goreportcard.com/report/github.com/D9ni3l/werc)
 
 A Prometheus exporter for Windows machines.
 
@@ -98,7 +98,7 @@ windows_exporter accepts flags to configure certain behaviours. The ones configu
 
 ## Installation
 
-The latest release can be downloaded from the [releases page](https://github.com/prometheus-community/windows_exporter/releases).
+The latest release can be downloaded from the [releases page](https://github.com/D9ni3l/werc/releases).
 
 Each release provides a .msi installer. The installer will setup the windows_exporter as a Windows service, as well as create an exception in the Windows Firewall.
 
@@ -169,7 +169,7 @@ msiexec /i <path-to-msi-file> ENABLED_COLLECTORS=os,service --% EXTRA_FLAGS="--c
 The windows_exporter can be run as a Docker container. The Docker image is available on
 
 * [Docker Hub](https://hub.docker.com/r/prometheuscommunity/windows-exporter): `docker.io/prometheuscommunity/windows-exporter`
-* [GitHub Container Registry](https://github.com/prometheus-community/windows_exporter/pkgs/container/windows-exporter): `ghcr.io/prometheus-community/windows-exporter`
+* [GitHub Container Registry](https://github.com/D9ni3l/werc/pkgs/container/windows-exporter): `ghcr.io/prometheus-community/windows-exporter`
 <!-- * [quay.io Registry](https://quay.io/repository/prometheuscommunity/windows-exporter): `quay.io/prometheuscommunity/windows-exporter` -->
 
 ### Tags
@@ -192,8 +192,8 @@ Windows Server 2012 and 2012R2 are supported as best-effort only, but not guaran
 ## Usage
 
     go get -u github.com/prometheus/promu
-    go get -u github.com/prometheus-community/windows_exporter
-    cd $env:GOPATH/src/github.com/prometheus-community/windows_exporter
+    go get -u github.com/D9ni3l/werc
+    cd $env:GOPATH/src/github.com/D9ni3l/werc
     promu build -v
     .\windows_exporter.exe
 

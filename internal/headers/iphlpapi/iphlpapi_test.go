@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/prometheus-community/windows_exporter/internal/headers/iphlpapi"
+	"github.com/D9ni3l/werc/internal/headers/iphlpapi"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/sys/windows"
 )

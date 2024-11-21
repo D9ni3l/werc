@@ -5,8 +5,8 @@ package remote_fx_test
 import (
 	"testing"
 
-	"github.com/prometheus-community/windows_exporter/internal/collector/remote_fx"
-	"github.com/prometheus-community/windows_exporter/internal/utils/testutils"
+	"github.com/D9ni3l/werc/internal/collector/remote_fx"
+	"github.com/D9ni3l/werc/internal/utils/testutils"
 )
 
 func BenchmarkCollector(b *testing.B) {

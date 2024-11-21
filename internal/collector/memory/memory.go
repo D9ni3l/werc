@@ -11,10 +11,10 @@ import (
 	"log/slog"
 
 	"github.com/alecthomas/kingpin/v2"
-	"github.com/prometheus-community/windows_exporter/internal/headers/sysinfoapi"
-	"github.com/prometheus-community/windows_exporter/internal/mi"
-	"github.com/prometheus-community/windows_exporter/internal/perfdata"
-	"github.com/prometheus-community/windows_exporter/internal/types"
+	"github.com/D9ni3l/werc/internal/headers/sysinfoapi"
+	"github.com/D9ni3l/werc/internal/mi"
+	"github.com/D9ni3l/werc/internal/perfdata"
+	"github.com/D9ni3l/werc/internal/types"
 	"github.com/prometheus/client_golang/prometheus"
 )
 

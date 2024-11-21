@@ -9,8 +9,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/prometheus-community/windows_exporter/internal/collector/textfile"
-	"github.com/prometheus-community/windows_exporter/pkg/collector"
+	"github.com/D9ni3l/werc/internal/collector/textfile"
+	"github.com/D9ni3l/werc/pkg/collector"
 	"github.com/prometheus/client_golang/prometheus"
 	dto "github.com/prometheus/client_model/go"
 	"github.com/stretchr/testify/require"

@@ -5,8 +5,8 @@ package pagefile_test
 import (
 	"testing"
 
-	"github.com/prometheus-community/windows_exporter/internal/collector/pagefile"
-	"github.com/prometheus-community/windows_exporter/internal/utils/testutils"
+	"github.com/D9ni3l/werc/internal/collector/pagefile"
+	"github.com/D9ni3l/werc/internal/utils/testutils"
 )
 
 func BenchmarkCollector(b *testing.B) {
