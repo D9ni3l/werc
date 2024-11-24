@@ -3,7 +3,13 @@ package rdp_client
 import (
     "github.com/prometheus/client_golang/prometheus"
     "golang.org/x/sys/windows"
+    "github.com/prometheus-community/windows_exporter/log"
 )
+
+// Example usage of the windows package
+func exampleWindowsUsage() {
+    _ = windows.Handle(0) // Placeholder to prevent unused import error
+}
 
 // RDPClientCollector collects metrics about RDP clients.
 type RDPClientCollector struct {
