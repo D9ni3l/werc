@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"golang.org/x/sys/windows/registry"
 	"github.com/prometheus/client_golang/prometheus"
+	"github.com/alecthomas/kingpin/v2"
 	"log/slog"
 )
 
@@ -27,6 +28,7 @@ type RDPClientCollector struct {
 
 // NewWithFlags creates a new RDPClientCollector with flags.
 func NewWithFlags(app *kingpin.Application) *RDPClientCollector {
+	// Process any flags if needed
 	return NewRDPClientCollector()
 }
 
@@ -64,11 +66,10 @@ func (c *RDPClientCollector) Collect(ch chan<- prometheus.Metric) {
 	)
 }
 
-// Build satisfies the Collector interface and accepts a session.
-func (c *RDPClientCollector) Build(logger *slog.Logger, session *mi.Session) error {
-	logger.Info("RDPClientCollector Build invoked")
-	// Log that the session is unused
-	logger.Info("Session is not used in this collector")
+// Build satisfies the Collector interface but does not rely on mi.Session.
+func (c *RDPClientCollector) Build(logger *slog.Logger) error {
+	logger.Info("RDPClientCollector Build method invoked")
+	// No session initialization required
 	return nil
 }
 
