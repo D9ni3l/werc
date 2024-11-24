@@ -1,69 +1,93 @@
 package rdp_client
 
 import (
-    "github.com/prometheus/client_golang/prometheus"
-    "golang.org/x/sys/windows"
-    "log"
+	"fmt"
+	"golang.org/x/sys/windows/registry"
+	"github.com/prometheus/client_golang/prometheus"
 )
 
-// Example usage of the windows package
-func exampleWindowsUsage() {
-    _ = windows.Handle(0) // Placeholder to prevent unused import error
+// Config defines the configuration for the RDP client collector.
+type Config struct {
+	Enabled bool `yaml:"enabled"`
 }
 
-// RDPClientCollector collects metrics about RDP clients.
+// ConfigDefaults provides the default configuration for the RDP client collector.
+var ConfigDefaults = Config{
+	Enabled: true,
+}
+
+// Name defines the collector name for registration.
+const Name = "rdp_client"
+
+// RDPClientCollector collects metrics about active RDP clients.
 type RDPClientCollector struct {
-    RDPConnections *prometheus.Desc
+	RDPSession *prometheus.Desc
+}
+
+// NewWithFlags creates a new RDP client collector with optional flags.
+func NewWithFlags() *RDPClientCollector {
+	return NewRDPClientCollector()
 }
 
 // NewRDPClientCollector creates a new RDPClientCollector.
 func NewRDPClientCollector() *RDPClientCollector {
-    return &RDPClientCollector{
-        RDPConnections: prometheus.NewDesc(
-            "windows_rdp_client_connections_total",
-            "Number of active RDP client connections",
-            []string{"client_ip", "username"},
-            nil,
-        ),
-    }
+	return &RDPClientCollector{
+		RDPSession: prometheus.NewDesc(
+			"windows_rdp_client_active",
+			"Information about active RDP client sessions",
+			[]string{"client_name"},
+			nil,
+		),
+	}
 }
 
 // Describe sends the metrics descriptions to the Prometheus channel.
 func (c *RDPClientCollector) Describe(ch chan<- *prometheus.Desc) {
-    ch <- c.RDPConnections
+	ch <- c.RDPSession
 }
 
 // Collect fetches the metrics and sends them to the Prometheus channel.
 func (c *RDPClientCollector) Collect(ch chan<- prometheus.Metric) {
-    connections, err := fetchRDPConnections()
-    if err != nil {
-        log.Printf("Failed to fetch RDP connections: %v", err)
-        return
-    }
+	clientName, err := getClientName()
+	if err != nil {
+		fmt.Printf("Error fetching RDP client name: %v\n", err)
+		return
+	}
 
-    for _, conn := range connections {
-        ch <- prometheus.MustNewConstMetric(
-            c.RDPConnections,
-            prometheus.CounterValue,
-            1,
-            conn.ClientIP,
-            conn.Username,
-        )
-    }
+	// Report the metric with the RDP client name
+	ch <- prometheus.MustNewConstMetric(
+		c.RDPSession,
+		prometheus.GaugeValue,
+		1, // Indicating an active session
+		clientName,
+	)
 }
 
-// fetchRDPConnections fetches RDP connection data from the system.
-func fetchRDPConnections() ([]RDPConnection, error) {
-    // Implement WMI query or Event Log parsing to gather RDP client connection data.
-    return []RDPConnection{
-        {ClientIP: "192.168.1.1", Username: "user1"},
-        {ClientIP: "192.168.1.2", Username: "user2"},
-    }, nil
-}
+// getClientName fetches the CLIENTNAME from the registry.
+func getClientName() (string, error) {
+	// Open the registry key for Volatile Environment
+	keyPath := `Volatile Environment`
+	key, err := registry.OpenKey(registry.CURRENT_USER, keyPath, registry.READ)
+	if err != nil {
+		return "", fmt.Errorf("failed to open registry key: %v", err)
+	}
+	defer key.Close()
 
-// RDPConnection represents an active RDP connection.
-type RDPConnection struct {
-    ClientIP string
-    Username string
+	// Attempt to get the CLIENTNAME value
+	clientName, _, err := key.GetStringValue("CLIENTNAME")
+	if err != nil {
+		// If CLIENTNAME is not found, return a default value
+		if err == registry.ErrNotExist {
+			return "No Active RDP Session", nil
+		}
+		return "", fmt.Errorf("failed to get CLIENTNAME: %v", err)
+	}
+
+	// Return the CLIENTNAME if it exists
+	if clientName != "" {
+		return clientName, nil
+	}
+
+	return "No Active RDP Session", nil
 }
 
