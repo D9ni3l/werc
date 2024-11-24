@@ -64,9 +64,9 @@ func (c *RDPClientCollector) Collect(ch chan<- prometheus.Metric) {
 	)
 }
 
-// Build initializes any dependencies and satisfies the Collector interface.
+// Build satisfies the Collector interface but does not rely on mi.Session.
 func (c *RDPClientCollector) Build(logger *slog.Logger) error {
-	// Perform any initialization if required, using the logger
+	// No mi.Session initialization needed; simply log the build process
 	logger.Info("RDPClientCollector Build method invoked")
 	return nil
 }
