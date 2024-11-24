@@ -6,7 +6,6 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/alecthomas/kingpin/v2"
 	"log/slog"
-	"github.com/d9ni3l/werc/mi"
 )
 
 // Name defines the collector name for registration.
@@ -66,11 +65,9 @@ func (c *RDPClientCollector) Collect(ch chan<- prometheus.Metric) {
 	)
 }
 
-// Build satisfies the Collector interface and includes the required *mi.Session parameter.
-func (c *RDPClientCollector) Build(logger *slog.Logger, session *mi.Session) error {
+// Build satisfies the Collector interface but does not use mi.Session directly.
+func (c *RDPClientCollector) Build(logger *slog.Logger, _ *mi.Session) error {
 	logger.Info("RDPClientCollector Build method invoked")
-	// Log the session, even if unused
-	logger.Info("Session passed to RDPClientCollector.Build")
 	return nil
 }
 
