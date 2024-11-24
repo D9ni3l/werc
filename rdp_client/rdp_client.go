@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"golang.org/x/sys/windows/registry"
 	"github.com/prometheus/client_golang/prometheus"
+        "github.com/prometheus-community/windows_exporter/pkg/collector"
 )
 
 // Config defines the configuration for the RDP client collector.
@@ -25,8 +26,8 @@ type RDPClientCollector struct {
 }
 
 // NewWithFlags creates a new RDP client collector with optional flags.
-func NewWithFlags() *RDPClientCollector {
-	return NewRDPClientCollector()
+func NewWithFlags() collector.Collector {
+    return NewRDPClientCollector()
 }
 
 // NewRDPClientCollector creates a new RDPClientCollector.
