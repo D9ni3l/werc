@@ -25,8 +25,8 @@ type RDPClientCollector struct {
 	RDPSession *prometheus.Desc
 }
 
-// NewWithFlags creates a new RDPClientCollector.
-func NewWithFlags() *RDPClientCollector {
+// NewWithFlags creates a new RDPClientCollector with flags.
+func NewWithFlags(app *kingpin.Application) *RDPClientCollector {
 	return NewRDPClientCollector()
 }
 
@@ -64,10 +64,11 @@ func (c *RDPClientCollector) Collect(ch chan<- prometheus.Metric) {
 	)
 }
 
-// Build satisfies the Collector interface but does not rely on mi.Session.
-func (c *RDPClientCollector) Build(logger *slog.Logger) error {
-	// No mi.Session initialization needed; simply log the build process
-	logger.Info("RDPClientCollector Build method invoked")
+// Build satisfies the Collector interface and accepts a session.
+func (c *RDPClientCollector) Build(logger *slog.Logger, session *mi.Session) error {
+	logger.Info("RDPClientCollector Build invoked")
+	// Log that the session is unused
+	logger.Info("Session is not used in this collector")
 	return nil
 }
 
