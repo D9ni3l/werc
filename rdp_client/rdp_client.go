@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"golang.org/x/sys/windows/registry"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus-community/windows_exporter/pkg/collector"
 )
 
 // Name defines the collector name for registration.
