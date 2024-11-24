@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"golang.org/x/sys/windows/registry"
 	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus-community/windows_exporter/internal/mi"
+	"log/slog"
 )
 
 // Name defines the collector name for registration.
@@ -41,11 +43,6 @@ func NewRDPClientCollector() *RDPClientCollector {
 	}
 }
 
-// Build satisfies the Collector interface's Build method.
-func (c *RDPClientCollector) Build() interface{} {
-	return c
-}
-
 // Describe sends the metrics descriptions to the Prometheus channel.
 func (c *RDPClientCollector) Describe(ch chan<- *prometheus.Desc) {
 	ch <- c.RDPSession
@@ -66,6 +63,13 @@ func (c *RDPClientCollector) Collect(ch chan<- prometheus.Metric) {
 		1, // Indicating an active session
 		clientName,
 	)
+}
+
+// Build initializes any dependencies and satisfies the Collector interface.
+func (c *RDPClientCollector) Build(logger *slog.Logger, session *mi.Session) error {
+	// If your collector requires session initialization, handle it here.
+	logger.Info("RDPClientCollector Build method invoked")
+	return nil
 }
 
 // getClientName fetches the CLIENTNAME from the registry.
