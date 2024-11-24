@@ -65,8 +65,8 @@ func (c *RDPClientCollector) Collect(ch chan<- prometheus.Metric) {
 	)
 }
 
-// Build satisfies the Collector interface but does not use mi.Session directly.
-func (c *RDPClientCollector) Build(logger *slog.Logger, _ *mi.Session) error {
+// Build satisfies the Collector interface but does not use mi.Session.
+func (c *RDPClientCollector) Build(logger *slog.Logger, _ interface{}) error {
 	logger.Info("RDPClientCollector Build method invoked")
 	return nil
 }
