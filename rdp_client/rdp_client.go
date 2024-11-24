@@ -6,16 +6,6 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 )
 
-// Config defines the configuration for the RDP client collector.
-type Config struct {
-	Enabled bool `yaml:"enabled"`
-}
-
-// ConfigDefaults provides the default configuration for the RDP client collector.
-var ConfigDefaults = Config{
-	Enabled: true,
-}
-
 // Name defines the collector name for registration.
 const Name = "rdp_client"
 
@@ -24,9 +14,9 @@ type RDPClientCollector struct {
 	RDPSession *prometheus.Desc
 }
 
-// NewWithFlags creates a new RDP client collector with optional flags.
-func NewWithFlags() collector.Collector {
-    return NewRDPClientCollector()
+// NewWithFlags creates a new RDP client collector.
+func NewWithFlags() *RDPClientCollector {
+	return NewRDPClientCollector()
 }
 
 // NewRDPClientCollector creates a new RDPClientCollector.
@@ -65,7 +55,6 @@ func (c *RDPClientCollector) Collect(ch chan<- prometheus.Metric) {
 
 // getClientName fetches the CLIENTNAME from the registry.
 func getClientName() (string, error) {
-	// Open the registry key for Volatile Environment
 	keyPath := `Volatile Environment`
 	key, err := registry.OpenKey(registry.CURRENT_USER, keyPath, registry.READ)
 	if err != nil {
@@ -73,17 +62,13 @@ func getClientName() (string, error) {
 	}
 	defer key.Close()
 
-	// Attempt to get the CLIENTNAME value
 	clientName, _, err := key.GetStringValue("CLIENTNAME")
-	if err != nil {
-		// If CLIENTNAME is not found, return a default value
-		if err == registry.ErrNotExist {
-			return "No Active RDP Session", nil
-		}
+	if err == registry.ErrNotExist {
+		return "No Active RDP Session", nil
+	} else if err != nil {
 		return "", fmt.Errorf("failed to get CLIENTNAME: %v", err)
 	}
 
-	// Return the CLIENTNAME if it exists
 	if clientName != "" {
 		return clientName, nil
 	}
