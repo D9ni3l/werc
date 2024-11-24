@@ -37,7 +37,7 @@ func (c *RDPClientCollector) Describe(ch chan<- *prometheus.Desc) {
 func (c *RDPClientCollector) Collect(ch chan<- prometheus.Metric) {
     connections, err := fetchRDPConnections()
     if err != nil {
-        log.Errorf("Failed to fetch RDP connections: %v", err)
+        log.Printf("Failed to fetch RDP connections: %v", err)
         return
     }
 
