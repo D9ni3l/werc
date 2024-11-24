@@ -24,8 +24,8 @@ type RDPClientCollector struct {
 	RDPSession *prometheus.Desc
 }
 
-// NewWithFlags creates a new RDP client collector compatible with the expected BuilderWithFlags[C] type.
-func NewWithFlags() collector.Collector {
+// NewWithFlags creates a new RDP client collector.
+func NewWithFlags() *RDPClientCollector {
 	return NewRDPClientCollector()
 }
 
