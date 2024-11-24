@@ -2,7 +2,7 @@ package rdp_client
 
 import (
     "testing"
-
+    "log"
     "github.com/prometheus/client_golang/prometheus/testutil"
 )
 

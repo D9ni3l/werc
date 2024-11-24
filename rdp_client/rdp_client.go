@@ -3,7 +3,7 @@ package rdp_client
 import (
     "github.com/prometheus/client_golang/prometheus"
     "golang.org/x/sys/windows"
-    "github.com/prometheus-community/windows_exporter/log"
+    "log"
 )
 
 // Example usage of the windows package
