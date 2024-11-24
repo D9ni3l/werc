@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"golang.org/x/sys/windows/registry"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus-community/windows_exporter/internal/mi"
 	"log/slog"
 )
 
@@ -66,8 +65,8 @@ func (c *RDPClientCollector) Collect(ch chan<- prometheus.Metric) {
 }
 
 // Build initializes any dependencies and satisfies the Collector interface.
-func (c *RDPClientCollector) Build(logger *slog.Logger, session *mi.Session) error {
-	// If your collector requires session initialization, handle it here.
+func (c *RDPClientCollector) Build(logger *slog.Logger) error {
+	// Perform any initialization if required, using the logger
 	logger.Info("RDPClientCollector Build method invoked")
 	return nil
 }
