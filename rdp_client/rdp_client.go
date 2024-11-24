@@ -28,7 +28,6 @@ type RDPClientCollector struct {
 
 // NewWithFlags creates a new RDPClientCollector with flags.
 func NewWithFlags(app *kingpin.Application) *RDPClientCollector {
-	// Process any flags if needed
 	return NewRDPClientCollector()
 }
 
@@ -66,10 +65,9 @@ func (c *RDPClientCollector) Collect(ch chan<- prometheus.Metric) {
 	)
 }
 
-// Build satisfies the Collector interface but does not rely on mi.Session.
+// Build satisfies the Collector interface without any dependencies on mi.Session.
 func (c *RDPClientCollector) Build(logger *slog.Logger) error {
 	logger.Info("RDPClientCollector Build method invoked")
-	// No session initialization required
 	return nil
 }
 
