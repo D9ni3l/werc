@@ -24,7 +24,7 @@ type RDPClientCollector struct {
 	RDPSession *prometheus.Desc
 }
 
-// NewWithFlags creates a new RDP client collector.
+// NewWithFlags creates a new RDPClientCollector.
 func NewWithFlags() *RDPClientCollector {
 	return NewRDPClientCollector()
 }
@@ -39,6 +39,11 @@ func NewRDPClientCollector() *RDPClientCollector {
 			nil,
 		),
 	}
+}
+
+// Build satisfies the Collector interface's Build method.
+func (c *RDPClientCollector) Build() interface{} {
+	return c
 }
 
 // Describe sends the metrics descriptions to the Prometheus channel.
